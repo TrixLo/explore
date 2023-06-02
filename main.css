@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  background: #1434a4;
+}
+#toggle {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 60px;
+  height: 40px;
+  background: #6495ed;
+  cursor: pointer;
+  display: flex;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+#toggle::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 2px;
+  background: #ffffff;
+  transform: translateY(-5);
+  transition: 0.2s;
+  margin-bottom: 12px;
+}
+#toggle::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 2px;
+  background: #ffffff;
+  transform: translateY(5px);
+  transition: 0.2s;
+  margin-top: 8px;
+}
+#toggle.active {
+  background: #ff0000;
+  transform: translateX(200px);
+  transition: 1s;
+  animation: toggle 1s ease-in-out;
+}
+
+@keyframes toggle {
+  0% {
+    transform: translateX(25px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(150px);
+    opacity: 1;
+  }
+}
+
+#toggle.active::before {
+  transform: translateY(5px) rotate(40deg);
+  background: #ffffff;
+}
+#toggle.active::after {
+  transform: translateY(-5px) rotate(-40deg);
+  background: #ffffff;
+}
+#navBar.active {
+  left: 0px;
+}
+#navBar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100vh;
+  background: #6495ed;
+  transition: 1s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 60px;
+}
+#navBar ul {
+  position: relative;
+  margin-top: 100px;
+}
+#navBar ul li {
+  list-style: none;
+  display: inline-block;
+  width: 100%;
+  padding: 10px 20px;
+}
+
+#navBar ul li:hover {
+  background: #1434a4;
+  padding-left: 50px;
+  border-left: 5px solid #ffffff;
+}
+#navBar a {
+  text-decoration: none;
+  align-items: center;
+  font-size: 20px;
+  color: #ffffff;
+}
